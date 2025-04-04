@@ -7,6 +7,8 @@ This program generates an optimal weekly timetable for a school based on
 classes, subjects, teachers, and period requirements.
 """
 
+### DO NOT MODIFY THE CODE BELOW THIS LINE ###
+
 # Define the input constraints
 # Classes
 classes = ["Class 6A", "Class 6B", "Class 7A", "Class 7B"]
@@ -40,6 +42,7 @@ teachers = {
 days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 periods_per_day = 6
 
+### DO NOT MODIFY THE CODE ABOVE THIS LINE ###
 
 def generate_timetable():
     """
