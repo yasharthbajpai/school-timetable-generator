@@ -39,7 +39,6 @@ teachers = {
 # School timing configuration
 days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 periods_per_day = 6
-school_start_time = "8:00 AM"
 
 
 def generate_timetable():
