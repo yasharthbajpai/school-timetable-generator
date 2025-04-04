@@ -92,7 +92,7 @@ def validate_timetable(timetable):
     # Check if teachers are not double-booked
     # Check if teachers are only teaching subjects they can teach
     
-    return True, "Timetable is valid"
+    return False, "To be implemented"
 
 
 def main():
