@@ -17,10 +17,10 @@ subjects = ["Mathematics", "Science", "English", "Social Studies", "Computer Sci
 # Weekly period requirements for each class and subject
 # {class_name: {subject_name: number_of_periods_per_week}}
 class_subject_periods = {
-    "Class 6A": {"Mathematics": 5, "Science": 4, "English": 5, "Social Studies": 4, "Computer Science": 2, "Physical Education": 2},
-    "Class 6B": {"Mathematics": 5, "Science": 4, "English": 5, "Social Studies": 4, "Computer Science": 2, "Physical Education": 2},
-    "Class 7A": {"Mathematics": 5, "Science": 5, "English": 5, "Social Studies": 4, "Computer Science": 2, "Physical Education": 1},
-    "Class 7B": {"Mathematics": 5, "Science": 5, "English": 5, "Social Studies": 4, "Computer Science": 2, "Physical Education": 1}
+    "Class 6A": {"Mathematics": 6, "Science": 6, "English": 6, "Social Studies": 6, "Computer Science": 3, "Physical Education": 3},
+    "Class 6B": {"Mathematics": 6, "Science": 6, "English": 6, "Social Studies": 6, "Computer Science": 3, "Physical Education": 3},
+    "Class 7A": {"Mathematics": 6, "Science": 6, "English": 6, "Social Studies": 6, "Computer Science": 4, "Physical Education": 2},
+    "Class 7B": {"Mathematics": 6, "Science": 6, "English": 6, "Social Studies": 6, "Computer Science": 4, "Physical Education": 2}
 }
 
 # Teachers and their teaching capabilities
