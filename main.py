@@ -109,7 +109,16 @@ def display_timetable(timetable):
     # TODO: Implement timetable display logic
     # Display the timetable for each class
     # Display the timetable for each teacher
-    pass
+    for cls in classes:
+        print(f"\nTimetable for {cls}")
+        print("-" * 40)
+        for day in days_of_week:
+            print(f"\n{day}:")
+            for period in range(1, periods_per_day + 1):
+                subject, teacher = timetable[day][period].get(cls, ("Free", "None"))
+                print(f"  Period {period}: {subject} ({teacher})")
+
+
 
 
 def validate_timetable(timetable):
@@ -128,8 +137,30 @@ def validate_timetable(timetable):
     # Check if teachers are not double-booked
     # Check if teachers are only teaching subjects they can teach
     
-    return False, "To be implemented"
+    class_period_counter = defaultdict(lambda: defaultdict(int))
+    teacher_assigned = {day: {period: set() for period in range(1, periods_per_day + 1)} for day in days_of_week}
 
+    for day in days_of_week:
+        for period in range(1, periods_per_day + 1):
+            for cls, (subject, teacher) in timetable[day][period].items():
+                if subject == "Free":
+                    continue
+                class_period_counter[cls][subject] += 1
+
+                if teacher in teacher_assigned[day][period]:
+                    return False, f"{teacher} is double-booked on {day}, period {period}"
+                teacher_assigned[day][period].add(teacher)
+
+                if subject not in teachers.get(teacher, []):
+                    return False, f"{teacher} cannot teach {subject} to {cls} on {day} period {period}"
+
+    for cls, subjects_needed in class_subject_periods.items():
+        for subject, required in subjects_needed.items():
+            actual = class_period_counter[cls][subject]
+            if actual != required:
+                return False, f"{cls} has {actual}/{required} periods of {subject}"
+
+    return True, "OK"
 
 def main():
     """
