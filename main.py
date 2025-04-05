@@ -9,6 +9,10 @@ classes, subjects, teachers, and period requirements.
 
 ### DO NOT MODIFY THE CODE BELOW THIS LINE ###
 
+
+import random
+from collections import defaultdict
+
 # Define the input constraints
 # Classes
 classes = ["Class 6A", "Class 6B", "Class 7A", "Class 7B"]
