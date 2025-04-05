@@ -86,7 +86,9 @@ Your solution will be evaluated based on:
 
 ## Submission Guidelines
 
-1. Submit your solution by pushing your changes to the forked repository in GitHub Codespaces
+1. Make sure your code runs without errors and produces valid timetables
 2. Include comments explaining your implementation details
-3. Make sure your code runs without errors and produces valid timetables
-4. Do not modify the provided input data structure
+3. Add your details into id.json
+4. Submit your solution by pushing your changes to the forked repository in GitHub Codespaces
+
+
