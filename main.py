@@ -56,15 +56,47 @@ def generate_timetable():
         dict: A data structure representing the complete timetable
               Format: {day: {period: {class: (subject, teacher)}}}
     """
-    # Initialize an empty timetable
-    timetable = {day: {period: {} for period in range(1, periods_per_day + 1)} for day in days_of_week}
+    # # Initialize an empty timetable
+    # timetable = {day: {period: {} for period in range(1, periods_per_day + 1)} for day in days_of_week}
     
     # TODO: Implement the timetable generation algorithm
     # 1. Check if a valid timetable is possible with the given constraints
     # 2. Assign subjects and teachers to periods for each class
     # 3. Ensure all constraints are satisfied
+    while True:
+        timetable = {day: {period: {} for period in range(1, periods_per_day + 1)} for day in days_of_week}
+        class_subject_pool = {}
+
+        for cls in classes:
+            pool = []
+            for subject, count in class_subject_periods[cls].items():
+                eligible_teachers = [t for t, sub in teachers.items() if subject in sub]
+                for _ in range(count):
+                    teacher = random.choice(eligible_teachers)
+                    pool.append((subject, teacher))
+            random.shuffle(pool)
+            class_subject_pool[cls] = pool
+
+        for day in days_of_week:
+            used_teachers = {period: set() for period in range(1, periods_per_day + 1)}
+            for period in range(1, periods_per_day + 1):
+                for cls in classes:
+                    assigned = False
+                    for idx, (subject, teacher) in enumerate(class_subject_pool[cls]):
+                        if teacher not in used_teachers[period]:
+                            timetable[day][period][cls] = (subject, teacher)
+                            used_teachers[period].add(teacher)
+                            class_subject_pool[cls].pop(idx)
+                            assigned = True
+                            break
+                    if not assigned:
+                        timetable[day][period][cls] = ("Free", "None")
+
+        is_valid, msg = validate_timetable(timetable)
+        if is_valid:
+            return timetable
+ 
     
-    return timetable
 
 
 def display_timetable(timetable):
